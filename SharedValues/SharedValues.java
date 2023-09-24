@@ -1,3 +1,5 @@
+package SharedValues;
+
 public class SharedValues {
     static final int SCREEN_WIDTH = 700;
     static final int SCREEN_HEIGHT = 700;
