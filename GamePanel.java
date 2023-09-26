@@ -33,11 +33,28 @@ public class GamePanel extends JPanel implements ActionListener {
         timer.start();
     }
 
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        draw(g);
+    }
+
     private void newApple() {
         appleX = random.nextInt((int) (SCREEN_WIDTH / UNIT_SIZE)) * UNIT_SIZE;
         appleY = random.nextInt((int) (SCREEN_HEIGHT / UNIT_SIZE)) * UNIT_SIZE;
     }
 
+    private void draw(Graphics g)
+    {
+        if(running)
+        {
+            g.setColor(new Color(0x99FFE3F1, true));
+            for (int i = 0; i < SCREEN_HEIGHT; i++) {
+                g.drawLine(i*UNIT_SIZE,0,i*UNIT_SIZE,SCREEN_HEIGHT);
+                g.drawLine(0,i*UNIT_SIZE,SCREEN_WIDTH,i*UNIT_SIZE);
+            }
+        }
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
