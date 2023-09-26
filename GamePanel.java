@@ -56,6 +56,24 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
+    public void move() {
+        for (int i = bodyParts; i > 0; i--) {
+            x[i] = x[i - 1];
+            y[i] = y[i - 1];
+        }
+
+        switch (direction) {
+            case 'U' ->
+                    y[0] -= UNIT_SIZE;
+            case 'D' ->
+                    y[0] += UNIT_SIZE;
+            case 'L' ->
+                    x[0] -= UNIT_SIZE;
+            case 'R' ->
+                    x[0] += UNIT_SIZE;
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
