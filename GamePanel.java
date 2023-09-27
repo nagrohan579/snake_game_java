@@ -69,7 +69,10 @@ public class GamePanel extends JPanel implements ActionListener {
                 }
             }
         }
+        else
+            gameOver(g);
     }
+
 
     public void move() {
         for (int i = bodyParts; i > 0; i--) {
@@ -135,6 +138,12 @@ public class GamePanel extends JPanel implements ActionListener {
         scorePanel.score.setText("SCORE : " + applesEaten);
     }
 
+    private void gameOver(Graphics g) {
+        g.setColor(Color.red);
+        g.setFont(new Font("Ink Free", Font.BOLD, 75));
+        FontMetrics metrics1 = getFontMetrics(g.getFont());
+        g.drawString("GAME OVER", (SCREEN_WIDTH - metrics1.stringWidth("GAME OVER")) / 2, (SCREEN_HEIGHT / 2));
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
