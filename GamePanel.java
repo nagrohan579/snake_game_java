@@ -131,11 +131,17 @@ public class GamePanel extends JPanel implements ActionListener {
 
     }
 
+    private void updateScore() {
+        scorePanel.score.setText("SCORE : " + applesEaten);
+    }
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (running) {
             move();
             checkApple();
+            updateScore();
             checkCollisons();
         }
         repaint();
