@@ -54,6 +54,10 @@ public class GamePanel extends JPanel implements ActionListener {
                 g.drawLine(0,i*UNIT_SIZE,SCREEN_WIDTH,i*UNIT_SIZE);
             }
 
+//            Display the apple on the screen
+            g.setColor(Color.red);
+            g.fillOval(appleX, appleY, UNIT_SIZE, UNIT_SIZE);
+
 //            Display the snake on the screen
             for (int i = 0; i < bodyParts; i++) {
                 if (i == 0) {
@@ -65,7 +69,6 @@ public class GamePanel extends JPanel implements ActionListener {
                 }
             }
         }
-
     }
 
     public void move() {
@@ -88,6 +91,6 @@ public class GamePanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        repaint();
     }
 }
